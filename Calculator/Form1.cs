@@ -131,8 +131,23 @@ namespace Calculator
 
         private void plus_button_Click(object sender, EventArgs e)
         {
-            number1 = Convert.ToDouble(textBox.Text);
-            sign = '+';
+            try
+            {
+                number1 = Convert.ToDouble(textBox.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            sign = textBox.Text.StartsWith("-") ? '-' : '+';
+            //if (textBox.Text.StartsWith("-"))
+            //{
+            //    sign = '-';
+            //}
+            //else
+            //{
+            //    sign = '+';
+            //}
             textBox.Text = "0";
         }
 
@@ -193,8 +208,12 @@ namespace Calculator
         private void minus_button_Click(object sender, EventArgs e)
         {
             number1 = Convert.ToDouble(textBox.Text);
+            if (sign == '+' || sign == '-' || sign == '*' || sign == '/')
+            {
+                textBox.Text = "0";
+                textBox.Text = "-" + textBox.Text;
+            }
             sign = '-';
-            textBox.Text = "0";
         }
 
         private void seven_button_Click(object sender, EventArgs e)
@@ -261,13 +280,15 @@ namespace Calculator
         private void delete_last_button_Click(object sender, EventArgs e)
         {
             string s = textBox.Text;
-            if (s.Length == 2 && s.StartsWith("-"))
+            if (s.Length == 2 && s.StartsWith("-") || s.Contains("Devide by zero") || s.Contains("Wronng Enter"))
             {
                 s = "0";
-            } else if (s.Length > 1)
+            }
+            else if (s.Length > 1)
             {
                 s = s.Substring(0, s.Length - 1);
-            } else
+            }
+            else
             {
                 s = "0";
             }
@@ -298,9 +319,10 @@ namespace Calculator
 
         private void percent_button_Click(object sender, EventArgs e)
         {
-            number2 = Convert.ToDouble(textBox.Text);
+            //number2 = Convert.ToDouble(textBox.Text);
             if (number2 != 0)
             {
+                textBox.Text = number2.ToString();
                 switch (sign)
                 {
                     case '+':
@@ -316,6 +338,7 @@ namespace Calculator
                         textBox.Text = (number1 / number2 * 0.01).ToString();
                         break;
                     default:
+                        //textBox.Text = "Wronng Enter";
                         break;
                 }
             }
