@@ -18,7 +18,7 @@ namespace Calculator
         }
 
         double number1 = 0, number2 = 0;
-        char sign;
+        char sign = ' ';
 
         private void plus_or_minus_button_Click(object sender, EventArgs e)
         {
@@ -31,28 +31,22 @@ namespace Calculator
         private void zero_button_Click(object sender, EventArgs e)
         {
             if (!(workspace.Text.StartsWith("0") || workspace.Text.StartsWith("-0") || workspace.Text.StartsWith("0.") || workspace.Text.StartsWith("-0.")) || workspace.Text.Contains("."))
-            {
                 workspace.Text += "0";
-            }
         }
 
         private void point_button_Click(object sender, EventArgs e)
         {
             if (!workspace.Text.Contains("."))
-            {
                 workspace.Text += ".";
-            }
         }
 
         private void equal_button_Click(object sender, EventArgs e)
         {
-            number2 = Convert.ToInt32(workspace.Text);
-            if (number2 == 0)
-            {
+            if (sign != ' ')
+                number2 = Convert.ToDouble(workspace.Text);
+            if (number2 == 0 && sign == '/')
                 workspace.Text = "Devide by zero";
-            }
             else
-            {
                 switch (sign)
                 {
                     case '+':
@@ -67,10 +61,7 @@ namespace Calculator
                     case '/':
                         workspace.Text = (number1 / number2).ToString();
                         break;
-                    default:
-                        break;
                 }
-            }
             number1 = number2 = 0;
             sign = ' ';
         }
@@ -88,9 +79,7 @@ namespace Calculator
                 workspace.Text += "-1";
             }
             else
-            {
                 workspace.Text += "1";
-            }
         }
 
         private void two_button_Click(object sender, EventArgs e)
@@ -106,9 +95,7 @@ namespace Calculator
                 workspace.Text += "-2";
             }
             else
-            {
                 workspace.Text += "2";
-            }
         }
 
         private void three_button_Click(object sender, EventArgs e)
@@ -124,30 +111,20 @@ namespace Calculator
                 workspace.Text += "-3";
             }
             else
-            {
                 workspace.Text += "3";
-            }
         }
 
         private void plus_button_Click(object sender, EventArgs e)
         {
             try
             {
-                number1 = Convert.ToDouble(workspace.Text);
+                number1 = number1 == 0 ? Convert.ToDouble(workspace.Text) : number1;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            sign = workspace.Text.StartsWith("-") ? '-' : '+';
-            //if (textBox.Text.StartsWith("-"))
-            //{
-            //    sign = '-';
-            //}
-            //else
-            //{
-            //    sign = '+';
-            //}
+            sign = '+';
             workspace.Text = "0";
         }
 
@@ -164,9 +141,7 @@ namespace Calculator
                 workspace.Text += "-4";
             }
             else
-            {
                 workspace.Text += "1";
-            }
         }
 
         private void five_button_Click(object sender, EventArgs e)
@@ -182,9 +157,7 @@ namespace Calculator
                 workspace.Text += "-5";
             }
             else
-            {
                 workspace.Text += "5";
-            }
         }
 
         private void six_button_Click(object sender, EventArgs e)
@@ -200,20 +173,26 @@ namespace Calculator
                 workspace.Text += "-6";
             }
             else
-            {
                 workspace.Text += "6";
-            }
         }
 
         private void minus_button_Click(object sender, EventArgs e)
         {
-            number1 = Convert.ToDouble(workspace.Text);
-            if (sign == '+' || sign == '-' || sign == '*' || sign == '/')
-            {
-                workspace.Text = "0";
+            if (workspace.Text == "0" && sign == ' ')
                 workspace.Text = "-" + workspace.Text;
+            else
+            {
+                try
+                {
+                    number1 = number1 == 0 ? Convert.ToDouble(workspace.Text) : number1;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                workspace.Text = "0";
+                sign = '-';
             }
-            sign = '-';
         }
 
         private void seven_button_Click(object sender, EventArgs e)
@@ -229,9 +208,7 @@ namespace Calculator
                 workspace.Text += "-7";
             }
             else
-            {
                 workspace.Text += "7";
-            }
         }
 
         private void eight_button_Click(object sender, EventArgs e)
@@ -247,9 +224,7 @@ namespace Calculator
                 workspace.Text += "-8";
             }
             else
-            {
                 workspace.Text += "8";
-            }
         }
 
         private void nine_button_Click(object sender, EventArgs e)
@@ -265,14 +240,19 @@ namespace Calculator
                 workspace.Text += "-9";
             }
             else
-            {
                 workspace.Text += "9";
-            }
         }
 
         private void multiplication_button_Click(object sender, EventArgs e)
         {
-            number1 = Convert.ToDouble(workspace.Text);
+            try
+            {
+                number1 = number1 == 0 ? Convert.ToDouble(workspace.Text) : number1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             sign = '*';
             workspace.Text = "0";
         }
@@ -283,21 +263,30 @@ namespace Calculator
             if (s.Length == 2 && s.StartsWith("-") || s.Contains("Devide by zero") || s.Contains("Wronng Enter"))
             {
                 s = "0";
+                number1 = number2 = 0;
+                sign = ' ';
             }
             else if (s.Length > 1)
-            {
                 s = s.Substring(0, s.Length - 1);
-            }
             else
             {
                 s = "0";
+                number1 = number2 = 0;
+                sign = ' ';
             }
             workspace.Text = s;
         }
 
         private void division_button_Click(object sender, EventArgs e)
         {
-            number1 = Convert.ToDouble(workspace.Text);
+            try
+            {
+                number1 = number1 == 0 ? Convert.ToDouble(workspace.Text) : number1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             sign = '/';
             workspace.Text = "0";
         }
@@ -305,10 +294,14 @@ namespace Calculator
         private void clear_button_Click(object sender, EventArgs e)
         {
             workspace.Text = "0";
+            number1 = number2 = 0;
+            sign = ' ';
         }
 
         private void sqrt_x_button_Click(object sender, EventArgs e)
         {
+            number1 = number2 = 0;
+            sign = ' ';
             workspace.Text = Math.Sqrt(Convert.ToDouble(workspace.Text)).ToString();
         }
 
@@ -319,43 +312,53 @@ namespace Calculator
 
         private void percent_button_Click(object sender, EventArgs e)
         {
-            //number2 = Convert.ToDouble(textBox.Text);
-            number2 = Convert.ToDouble(workspace.Text);
-            if (number2 != 0)
+            try
             {
-                workspace.Text = number2.ToString();
+                number2 = Convert.ToDouble(workspace.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            if (number2 != 0 && sign != ' ')
+            {
                 switch (sign)
                 {
                     case '+':
-                        workspace.Text = (number1 + number2 * 0.01).ToString();
+                        workspace.Text = (number1 + number1 * number2 * 0.01).ToString();
                         break;
                     case '-':
-                        workspace.Text = (number1 - number2 * 0.01).ToString();
+                        workspace.Text = (number1 - number1 * number2 * 0.01).ToString();
                         break;
                     case '*':
-                        workspace.Text = (number1 * number2 * 0.01).ToString();
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        //TODO: Learn and fix how calculate multiply and devide with % (2 * 5%) or (2 / 5%)
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        workspace.Text = (number1 * number1 * number2 * 0.01).ToString();
                         break;
                     case '/':
-                        workspace.Text = (number1 / number2 * 0.01).ToString();
-                        break;
-                    default:
-                        //textBox.Text = "Wronng Enter";
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        //TODO: Learn and fix how calculate multiply and devide with % (2 * 5%) or (2 / 5%)
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        workspace.Text = (number1 / number1 * number2 * 0.01).ToString();
                         break;
                 }
             }
             else
-            {
                 workspace.Text = (Convert.ToDouble(workspace.Text) * 0.01).ToString();
-            }
         }
 
         private void x_power_2_button_Click(object sender, EventArgs e)
         {
+            number1 = number2 = 0;
+            sign = ' ';
             workspace.Text = Math.Pow(Convert.ToDouble(workspace.Text), 2).ToString();
         }
 
         private void one_by_x_button_Click(object sender, EventArgs e)
         {
+            number1 = number2 = 0;
+            sign = ' ';
             workspace.Text = (1/Convert.ToDouble(workspace.Text)).ToString();
         }
     }
