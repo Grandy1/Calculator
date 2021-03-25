@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
-        public Form1()
+        public Calculator()
         {
             InitializeComponent();
         }
@@ -22,50 +22,50 @@ namespace Calculator
 
         private void plus_or_minus_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("-"))
-                textBox.Text = textBox.Text.Remove(0, 1);
+            if (workspace.Text.StartsWith("-"))
+                workspace.Text = workspace.Text.Remove(0, 1);
             else
-                textBox.Text = "-" + textBox.Text;
+                workspace.Text = "-" + workspace.Text;
         }
 
         private void zero_button_Click(object sender, EventArgs e)
         {
-            if (!(textBox.Text.StartsWith("0") || textBox.Text.StartsWith("-0") || textBox.Text.StartsWith("0.") || textBox.Text.StartsWith("-0.")) || textBox.Text.Contains("."))
+            if (!(workspace.Text.StartsWith("0") || workspace.Text.StartsWith("-0") || workspace.Text.StartsWith("0.") || workspace.Text.StartsWith("-0.")) || workspace.Text.Contains("."))
             {
-                textBox.Text += "0";
+                workspace.Text += "0";
             }
         }
 
         private void point_button_Click(object sender, EventArgs e)
         {
-            if (!textBox.Text.Contains("."))
+            if (!workspace.Text.Contains("."))
             {
-                textBox.Text += ".";
+                workspace.Text += ".";
             }
         }
 
         private void equal_button_Click(object sender, EventArgs e)
         {
-            number2 = Convert.ToInt32(textBox.Text);
+            number2 = Convert.ToInt32(workspace.Text);
             if (number2 == 0)
             {
-                textBox.Text = "Devide by zero";
+                workspace.Text = "Devide by zero";
             }
             else
             {
                 switch (sign)
                 {
                     case '+':
-                        textBox.Text = (number1 + number2).ToString();
+                        workspace.Text = (number1 + number2).ToString();
                         break;
                     case '-':
-                        textBox.Text = (number1 - number2).ToString();
+                        workspace.Text = (number1 - number2).ToString();
                         break;
                     case '*':
-                        textBox.Text = (number1 * number2).ToString();
+                        workspace.Text = (number1 * number2).ToString();
                         break;
                     case '/':
-                        textBox.Text = (number1 / number2).ToString();
+                        workspace.Text = (number1 / number2).ToString();
                         break;
                     default:
                         break;
@@ -77,55 +77,55 @@ namespace Calculator
 
         private void one_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "1";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "1";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-1";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-1";
             }
             else
             {
-                textBox.Text += "1";
+                workspace.Text += "1";
             }
         }
 
         private void two_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "2";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "2";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-2";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-2";
             }
             else
             {
-                textBox.Text += "2";
+                workspace.Text += "2";
             }
         }
 
         private void three_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "3";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "3";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-3";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-3";
             }
             else
             {
-                textBox.Text += "3";
+                workspace.Text += "3";
             }
         }
 
@@ -153,55 +153,55 @@ namespace Calculator
 
         private void four_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "4";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "4";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-4";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-4";
             }
             else
             {
-                textBox.Text += "1";
+                workspace.Text += "1";
             }
         }
 
         private void five_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "5";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "5";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-5";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-5";
             }
             else
             {
-                textBox.Text += "5";
+                workspace.Text += "5";
             }
         }
 
         private void six_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "6";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "6";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-6";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-6";
             }
             else
             {
-                textBox.Text += "6";
+                workspace.Text += "6";
             }
         }
 
@@ -218,63 +218,63 @@ namespace Calculator
 
         private void seven_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "7";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "7";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-7";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-7";
             }
             else
             {
-                textBox.Text += "7";
+                workspace.Text += "7";
             }
         }
 
         private void eight_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "8";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "8";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-8";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-8";
             }
             else
             {
-                textBox.Text += "8";
+                workspace.Text += "8";
             }
         }
 
         private void nine_button_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.StartsWith("0") && !textBox.Text.StartsWith("0."))
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "9";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "9";
             }
-            else if (textBox.Text.StartsWith("-0") && !textBox.Text.StartsWith("-0."))
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
             {
-                textBox.Text = textBox.Text.Remove(0);
-                textBox.Text += "-9";
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += "-9";
             }
             else
             {
-                textBox.Text += "9";
+                workspace.Text += "9";
             }
         }
 
         private void multiplication_button_Click(object sender, EventArgs e)
         {
-            number1 = Convert.ToDouble(textBox.Text);
+            number1 = Convert.ToDouble(workspace.Text);
             sign = '*';
-            textBox.Text = "0";
+            workspace.Text = "0";
         }
 
         private void delete_last_button_Click(object sender, EventArgs e)
@@ -292,24 +292,24 @@ namespace Calculator
             {
                 s = "0";
             }
-            textBox.Text = s;
+            workspace.Text = s;
         }
 
         private void division_button_Click(object sender, EventArgs e)
         {
-            number1 = Convert.ToDouble(textBox.Text);
+            number1 = Convert.ToDouble(workspace.Text);
             sign = '/';
-            textBox.Text = "0";
+            workspace.Text = "0";
         }
 
         private void clear_button_Click(object sender, EventArgs e)
         {
-            textBox.Text = "0";
+            workspace.Text = "0";
         }
 
         private void sqrt_x_button_Click(object sender, EventArgs e)
         {
-            textBox.Text = Math.Sqrt(Convert.ToDouble(textBox.Text)).ToString();
+            workspace.Text = Math.Sqrt(Convert.ToDouble(workspace.Text)).ToString();
         }
 
         private void clear_entry_button_Click(object sender, EventArgs e)
@@ -320,22 +320,23 @@ namespace Calculator
         private void percent_button_Click(object sender, EventArgs e)
         {
             //number2 = Convert.ToDouble(textBox.Text);
+            number2 = Convert.ToDouble(workspace.Text);
             if (number2 != 0)
             {
                 textBox.Text = number2.ToString();
                 switch (sign)
                 {
                     case '+':
-                        textBox.Text = (number1 + number2 * 0.01).ToString();
+                        workspace.Text = (number1 + number2 * 0.01).ToString();
                         break;
                     case '-':
-                        textBox.Text = (number1 - number2 * 0.01).ToString();
+                        workspace.Text = (number1 - number2 * 0.01).ToString();
                         break;
                     case '*':
-                        textBox.Text = (number1 * number2 * 0.01).ToString();
+                        workspace.Text = (number1 * number2 * 0.01).ToString();
                         break;
                     case '/':
-                        textBox.Text = (number1 / number2 * 0.01).ToString();
+                        workspace.Text = (number1 / number2 * 0.01).ToString();
                         break;
                     default:
                         //textBox.Text = "Wronng Enter";
@@ -344,18 +345,18 @@ namespace Calculator
             }
             else
             {
-                textBox.Text = (Convert.ToDouble(textBox.Text) * 0.01).ToString();
+                workspace.Text = (Convert.ToDouble(workspace.Text) * 0.01).ToString();
             }
         }
 
         private void x_power_2_button_Click(object sender, EventArgs e)
         {
-            textBox.Text = Math.Pow(Convert.ToDouble(textBox.Text), 2).ToString();
+            workspace.Text = Math.Pow(Convert.ToDouble(workspace.Text), 2).ToString();
         }
 
         private void one_by_x_button_Click(object sender, EventArgs e)
         {
-            textBox.Text = (1/Convert.ToDouble(textBox.Text)).ToString();
+            workspace.Text = (1/Convert.ToDouble(workspace.Text)).ToString();
         }
     }
 }
