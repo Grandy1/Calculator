@@ -133,13 +133,13 @@ namespace Calculator
         {
             try
             {
-                number1 = Convert.ToDouble(textBox.Text);
+                number1 = Convert.ToDouble(workspace.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            sign = textBox.Text.StartsWith("-") ? '-' : '+';
+            sign = workspace.Text.StartsWith("-") ? '-' : '+';
             //if (textBox.Text.StartsWith("-"))
             //{
             //    sign = '-';
@@ -148,7 +148,7 @@ namespace Calculator
             //{
             //    sign = '+';
             //}
-            textBox.Text = "0";
+            workspace.Text = "0";
         }
 
         private void four_button_Click(object sender, EventArgs e)
@@ -207,11 +207,11 @@ namespace Calculator
 
         private void minus_button_Click(object sender, EventArgs e)
         {
-            number1 = Convert.ToDouble(textBox.Text);
+            number1 = Convert.ToDouble(workspace.Text);
             if (sign == '+' || sign == '-' || sign == '*' || sign == '/')
             {
-                textBox.Text = "0";
-                textBox.Text = "-" + textBox.Text;
+                workspace.Text = "0";
+                workspace.Text = "-" + workspace.Text;
             }
             sign = '-';
         }
@@ -279,7 +279,7 @@ namespace Calculator
 
         private void delete_last_button_Click(object sender, EventArgs e)
         {
-            string s = textBox.Text;
+            string s = workspace.Text;
             if (s.Length == 2 && s.StartsWith("-") || s.Contains("Devide by zero") || s.Contains("Wronng Enter"))
             {
                 s = "0";
@@ -323,7 +323,7 @@ namespace Calculator
             number2 = Convert.ToDouble(workspace.Text);
             if (number2 != 0)
             {
-                textBox.Text = number2.ToString();
+                workspace.Text = number2.ToString();
                 switch (sign)
                 {
                     case '+':
