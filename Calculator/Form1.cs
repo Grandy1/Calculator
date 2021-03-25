@@ -331,16 +331,10 @@ namespace Calculator
                         workspace.Text = (number1 - number1 * number2 * 0.01).ToString();
                         break;
                     case '*':
-                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        //TODO: Learn and fix how calculate multiply and devide with % (2 * 5%) or (2 / 5%)
-                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        workspace.Text = (number1 * number1 * number2 * 0.01).ToString();
+                        workspace.Text = (number1 * number2 * 0.01).ToString();
                         break;
                     case '/':
-                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        //TODO: Learn and fix how calculate multiply and devide with % (2 * 5%) or (2 / 5%)
-                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        workspace.Text = (number1 / number1 * number2 * 0.01).ToString();
+                        workspace.Text = (number1 / (number2 * 0.01)).ToString();
                         break;
                 }
             }
