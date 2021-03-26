@@ -260,7 +260,7 @@ namespace Calculator
         private void delete_last_button_Click(object sender, EventArgs e)
         {
             string s = workspace.Text;
-            if (s.Length == 2 && s.StartsWith("-") || s.Contains("Devide by zero") || s.Contains("Wronng Enter"))
+            if (s.Length == 2 && s.StartsWith("-") || s.Contains("Devide by zero") || s.Contains("NaN"))
             {
                 s = "0";
                 number1 = number2 = 0;
@@ -300,14 +300,12 @@ namespace Calculator
 
         private void sqrt_x_button_Click(object sender, EventArgs e)
         {
-            number1 = number2 = 0;
-            sign = ' ';
             workspace.Text = Math.Sqrt(Convert.ToDouble(workspace.Text)).ToString();
         }
 
         private void clear_entry_button_Click(object sender, EventArgs e)
         {
-
+            workspace.Text = "0";
         }
 
         private void percent_button_Click(object sender, EventArgs e)
@@ -344,15 +342,11 @@ namespace Calculator
 
         private void x_power_2_button_Click(object sender, EventArgs e)
         {
-            number1 = number2 = 0;
-            sign = ' ';
             workspace.Text = Math.Pow(Convert.ToDouble(workspace.Text), 2).ToString();
         }
 
         private void one_by_x_button_Click(object sender, EventArgs e)
         {
-            number1 = number2 = 0;
-            sign = ' ';
             workspace.Text = (1/Convert.ToDouble(workspace.Text)).ToString();
         }
     }
