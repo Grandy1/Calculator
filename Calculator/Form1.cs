@@ -16,10 +16,11 @@ namespace Calculator
         {
             InitializeComponent();
         }
-
+        // после того как получен ркзультат, если нажать любую цифру, то она будет дописывать в поле, нужно изменить на ввод нового числа
         double number1 = 0, number2 = 0;
         char sign = ' ';
-
+        // убрать кнопку +/-, не нужна
+        // добавить вместо нее кнопку "ANS", которая будет хранить в себе предыдущий ответ
         private void plus_or_minus_button_Click(object sender, EventArgs e)
         {
             if (workspace.Text.StartsWith("-"))
@@ -207,7 +208,8 @@ namespace Calculator
             number1 = number2 = 0;
             sign = ' ';
         }
-
+        //изменить механику работы кнопки sqrt
+        //при нажатии на кнопку будет выводить на экран строчку sqrt() и ждать ввода числа
         private void sqrt_x_button_Click(object sender, EventArgs e)
         {
             workspace.Text = Math.Sqrt(Convert.ToDouble(workspace.Text)).ToString();
@@ -249,7 +251,7 @@ namespace Calculator
             else
                 workspace.Text = (Convert.ToDouble(workspace.Text) * 0.01).ToString();
         }
-
+        
         private void x_power_2_button_Click(object sender, EventArgs e)
         {
             workspace.Text = Math.Pow(Convert.ToDouble(workspace.Text), 2).ToString();
