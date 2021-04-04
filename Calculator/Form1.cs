@@ -66,54 +66,6 @@ namespace Calculator
             sign = ' ';
         }
 
-        private void one_button_Click(object sender, EventArgs e)
-        {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "1";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-1";
-            }
-            else
-                workspace.Text += "1";
-        }
-
-        private void two_button_Click(object sender, EventArgs e)
-        {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "2";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-2";
-            }
-            else
-                workspace.Text += "2";
-        }
-
-        private void three_button_Click(object sender, EventArgs e)
-        {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "3";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-3";
-            }
-            else
-                workspace.Text += "3";
-        }
-
         private void plus_button_Click(object sender, EventArgs e)
         {
             try
@@ -128,52 +80,56 @@ namespace Calculator
             workspace.Text = "0";
         }
 
+        private void click_number(char c)
+        {
+            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
+            {
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += c;
+            }
+            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
+            {
+                workspace.Text = workspace.Text.Remove(0);
+                workspace.Text += ("-" + c);
+            }
+            else
+                workspace.Text += c;
+        }
+        private void one_button_Click(object sender, EventArgs e)
+        {
+            click_number('1');
+        }
+        private void two_button_Click(object sender, EventArgs e)
+        {
+            click_number('2');
+        }
+        private void three_button_Click(object sender, EventArgs e)
+        {
+            click_number('3');
+        }
         private void four_button_Click(object sender, EventArgs e)
         {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "4";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-4";
-            }
-            else
-                workspace.Text += "1";
+            click_number('4');
         }
-
         private void five_button_Click(object sender, EventArgs e)
         {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "5";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-5";
-            }
-            else
-                workspace.Text += "5";
+            click_number('5');
         }
-
         private void six_button_Click(object sender, EventArgs e)
         {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "6";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-6";
-            }
-            else
-                workspace.Text += "6";
+            click_number('6');
+        }
+        private void seven_button_Click(object sender, EventArgs e)
+        {
+            click_number('7');
+        }
+        private void eight_button_Click(object sender, EventArgs e)
+        {
+            click_number('8');
+        }
+        private void nine_button_Click(object sender, EventArgs e)
+        {
+            click_number('9');
         }
 
         private void minus_button_Click(object sender, EventArgs e)
@@ -193,54 +149,6 @@ namespace Calculator
                 workspace.Text = "0";
                 sign = '-';
             }
-        }
-
-        private void seven_button_Click(object sender, EventArgs e)
-        {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "7";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-7";
-            }
-            else
-                workspace.Text += "7";
-        }
-
-        private void eight_button_Click(object sender, EventArgs e)
-        {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "8";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-8";
-            }
-            else
-                workspace.Text += "8";
-        }
-
-        private void nine_button_Click(object sender, EventArgs e)
-        {
-            if (workspace.Text.StartsWith("0") && !workspace.Text.StartsWith("0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "9";
-            }
-            else if (workspace.Text.StartsWith("-0") && !workspace.Text.StartsWith("-0."))
-            {
-                workspace.Text = workspace.Text.Remove(0);
-                workspace.Text += "-9";
-            }
-            else
-                workspace.Text += "9";
         }
 
         private void multiplication_button_Click(object sender, EventArgs e)
