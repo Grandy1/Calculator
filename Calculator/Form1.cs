@@ -136,6 +136,8 @@ namespace Calculator
         {
             if (workspace.Text == "0" && sign == ' ')
                 workspace.Text = "-" + workspace.Text;
+            else if (number1 != 0 && sign != ' ')
+                workspace.Text = "-" + workspace.Text;
             else
             {
                 try
