@@ -17,16 +17,14 @@ namespace Calculator
             InitializeComponent();
         }
         // после того как получен ркзультат, если нажать любую цифру, то она будет дописывать в поле, нужно изменить на ввод нового числа
-        double number1 = 0, number2 = 0;
+        double number1 = 0.0, number2 = 0.0;
         char sign = ' ';
+        double ANS = 0.0;
         // убрать кнопку +/-, не нужна
         // добавить вместо нее кнопку "ANS", которая будет хранить в себе предыдущий ответ
-        private void plus_or_minus_button_Click(object sender, EventArgs e)
+        private void ANS_button_Click(object sender, EventArgs e)
         {
-            if (workspace.Text.StartsWith("-"))
-                workspace.Text = workspace.Text.Remove(0, 1);
-            else
-                workspace.Text = "-" + workspace.Text;
+           //
         }
 
         private void zero_button_Click(object sender, EventArgs e)
@@ -65,6 +63,7 @@ namespace Calculator
                 }
             number1 = number2 = 0;
             sign = ' ';
+            ANS = Convert.ToDouble(workspace.Text);
         }
 
         private void plus_button_Click(object sender, EventArgs e)
