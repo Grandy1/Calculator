@@ -352,7 +352,7 @@ namespace Calculator
             // 
             // ans_button
             // 
-            this.ans_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ans_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ans_button.Location = new System.Drawing.Point(0, 561);
             this.ans_button.Margin = new System.Windows.Forms.Padding(4);
             this.ans_button.Name = "ans_button";
