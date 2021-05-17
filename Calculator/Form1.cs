@@ -212,7 +212,25 @@ namespace Calculator
         //при нажатии на кнопку будет выводить на экран строчку sqrt() и ждать ввода числа
         private void sqrt_x_button_Click(object sender, EventArgs e)
         {
-            workspace.Text = Math.Sqrt(Convert.ToDouble(workspace.Text)).ToString();
+            if (number1 != 0)
+            {
+                switch (sign)
+                {
+                    case '+':
+                        workspace.Text = (number1 + Math.Sqrt(Convert.ToDouble(workspace.Text))).ToString();
+                        break;
+                    case '-':
+                        workspace.Text = (number1 - Math.Sqrt(Convert.ToDouble(workspace.Text))).ToString();
+                        break;
+                    case '*':
+                        workspace.Text = (number1 * Math.Sqrt(Convert.ToDouble(workspace.Text))).ToString();
+                        break;
+                    case '/':
+                        workspace.Text = (number1 / Math.Sqrt(Convert.ToDouble(workspace.Text))).ToString();
+                        break;
+                }
+                //workspace.Text = number1 Math.Sqrt(Convert.ToDouble(workspace.Text)).ToString();
+            }
         }
 
         private void clear_entry_button_Click(object sender, EventArgs e)
